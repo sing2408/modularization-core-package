@@ -18,7 +18,6 @@ let package = Package(
         .target(
             name: "CorePackage",
             dependencies: [],
-            path: "Sources/CorePackage",
             resources: [
                 .process("Data/Models/GamersHubDataModel.xcdatamodel") // Corrected resource path
             ]
