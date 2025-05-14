@@ -10,28 +10,32 @@ import Foundation
 
 public class PersistenceController: @unchecked Sendable {
     public static let shared = PersistenceController()
-
-    let identifier: String
+    
+//    let identifier: String
     let modelName: String
-
+    
     public let container: NSPersistentContainer
-
+    
     private init() {
-        identifier = "com.Core"
+        //        identifier = "com.Core"
         modelName = "GamersHubDataModel"
-
-        let frameworkBundle = Bundle(identifier: identifier)
-
-        guard let modelURL = frameworkBundle?.url(forResource: modelName, withExtension: "mom") else {
+        
+        //        let frameworkBundle = Bundle(identifier: identifier)
+        //
+        //        guard let modelURL = frameworkBundle?.url(forResource: modelName, withExtension: "mom") else {
+        //            fatalError("Failed to find model URL in framework bundle.")
+        //        }
+        
+        guard let modelURL = Bundle.module.url(forResource: modelName, withExtension: "mom") else {
             fatalError("Failed to find model URL in framework bundle.")
         }
-
+        
         guard let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL) else {
             fatalError("Failed to create managed object model from URL.")
         }
-
+        
         container = NSPersistentContainer(name: modelName, managedObjectModel: managedObjectModel)
-
+        
         container.loadPersistentStores { (_, error) in
             if let error = error as NSError? {
                 fatalError("Failed to load Core Data stack: \(error), \(error.userInfo)")
@@ -39,7 +43,7 @@ public class PersistenceController: @unchecked Sendable {
         }
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
-
+    
     public func save(context: NSManagedObjectContext) {
         if context.hasChanges {
             do {
