@@ -17,10 +17,13 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
-        path: "Sources/CorePackage",
         .target(
             name: "CorePackage",
-            dependencies: [.process("Data/Models/GamersHubDataModel.xcdatamodeld")]
+            dependencies: [],
+            path: "Sources/CorePackage", // Make sure this path is correct
+            resources: [
+                .process("Data/Models/GamersHubDataModel.xcdatamodeld")
+            ]
         ),
         .testTarget(
             name: "CorePackageTests",
