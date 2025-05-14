@@ -18,9 +18,9 @@ let package = Package(
         .target(
             name: "CorePackage",
             dependencies: [],
-            // resources: [
-            //     .process("Data/Models/GamersHubDataModel.xcdatamodel") // Corrected resource path
-            // ]
+            resources: [
+                .process("Data/Models/GamersHubDataModel.xcdatamodel") // Corrected resource path
+            ]
         ),
         .testTarget(
             name: "CorePackageTests",
