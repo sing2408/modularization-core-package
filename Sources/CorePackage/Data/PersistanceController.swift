@@ -26,7 +26,7 @@ public class PersistenceController: @unchecked Sendable {
         //            fatalError("Failed to find model URL in framework bundle.")
         //        }
         
-        guard let modelURL = Bundle.module.url(forResource: modelName, withExtension: "momd") else {
+        guard let modelURL = Bundle.module.url(forResource: modelName, withExtension: "mom") else {
 
             fatalError("Failed to find model URL in framework bundle test.")
         }
