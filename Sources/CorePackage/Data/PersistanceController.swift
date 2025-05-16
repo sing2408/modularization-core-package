@@ -11,20 +11,13 @@ import Foundation
 public class PersistenceController: @unchecked Sendable {
     public static let shared = PersistenceController()
     
-//    let identifier: String
     let modelName: String
     
     public let container: NSPersistentContainer
     
     private init() {
-        //        identifier = "com.Core"
+
         modelName = "GamersHubDataModel"
-        
-        //        let frameworkBundle = Bundle(identifier: identifier)
-        //
-        //        guard let modelURL = frameworkBundle?.url(forResource: modelName, withExtension: "mom") else {
-        //            fatalError("Failed to find model URL in framework bundle.")
-        //        }
         
         guard let modelURL = Bundle.module.url(forResource: modelName, withExtension: "mom") else {
 

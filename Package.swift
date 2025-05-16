@@ -9,7 +9,6 @@ let package = Package(
         .iOS(.v16),
     ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "CorePackage",
             targets: ["CorePackage"]),
@@ -19,7 +18,7 @@ let package = Package(
             name: "CorePackage",
             dependencies: [],
             resources: [
-                .process("Data/Models/GamersHubDataModel.xcdatamodel") // Corrected resource path
+                .process("Data/Models/GamersHubDataModel.xcdatamodel")
             ]
         ),
         .testTarget(
